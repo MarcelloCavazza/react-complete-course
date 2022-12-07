@@ -1,4 +1,4 @@
-import { ExpensesMainContainer } from "./component/ExpensesMainContainer";
+import { ExpensesMainContainer } from "./component/Expenses/ExpensesMainContainer";
 
 function App() {
 
