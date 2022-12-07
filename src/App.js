@@ -1,4 +1,4 @@
-import { ExpenseItem } from "./component/ExpenseItem";
+import { ExpensesMainContainer } from "./component/ExpensesMainContainer";
 
 function App() {
 
@@ -32,12 +32,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Let's get started!</h2>
-        {
-          data.map((service) => {
-            return <ExpenseItem key={service.id} title={service.title} price={service.price} date={service.date} />
-          })
-        }
+        <ExpensesMainContainer data={data} />
       </header>
     </div>
   );
