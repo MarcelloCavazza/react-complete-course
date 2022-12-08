@@ -33,7 +33,7 @@ export const ExpenseForm = (props) => {
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
-                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)} min={new Date().getFullYear + '-01-01'} max={new Date().getFullYear + '-12-31'} />
+                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)} min={new Date().getFullYear() + '-01-01'} max={new Date().getFullYear() + '-12-31'} />
                 </div>
             </div>
             <div className='new-expense__actions'>
