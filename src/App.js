@@ -1,4 +1,5 @@
-import { ExpensesMainContainer } from "./component/Expenses/ExpensesMainContainer";
+import { ExpensesMainContainer } from "./components/Expenses/ExpensesMainContainer";
+import { NewExpense } from "./components/NewExpense/NewExpense";
 
 function App() {
 
@@ -31,9 +32,8 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <ExpensesMainContainer data={data} />
-      </header>
+      <NewExpense />
+      <ExpensesMainContainer data={data} />
     </div>
   );
 }

@@ -38,6 +38,9 @@ export const ExpenseForm = () => {
                         </>)
                     })
                 }
+                <div className='new-expense__actions'>
+                    <button type="submit">Add Expnese</button>
+                </div>
             </div>
         </form>
     </>)
