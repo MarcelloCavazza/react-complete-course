@@ -4,7 +4,7 @@ import { NewExpense } from "./components/NewExpense/NewExpense";
 
 function App() {
 
-  const [expenseData, setExpenseData] = useState([
+  const fixedExpenses = [
     {
       id: 'e1',
       title: 'Toilet Paper',
@@ -29,11 +29,12 @@ function App() {
       price: 450,
       date: new Date(2021, 5, 12),
     },
-  ])
+  ]
+  const [expenseData, setExpenseData] = useState(fixedExpenses)
 
   const newExpenseData = (data) => {
     setExpenseData((prevState) => {
-      return [...prevState, data]
+      return [data, ...prevState]
     })
   }
 
