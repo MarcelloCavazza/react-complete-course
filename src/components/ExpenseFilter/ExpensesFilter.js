@@ -5,7 +5,7 @@ export const ExpensesFilter = (props) => {
 
     const [year, setYear] = useState("all")
 
-    const selectYeaar = async (yearSelected) => {
+    const selectYeaar = (yearSelected) => {
         setYear(yearSelected)
         props.onSearch(year);
     }
@@ -15,6 +15,7 @@ export const ExpensesFilter = (props) => {
             <div className='expenses-filter__control'>
                 <label>Filter by year</label>
                 <select onChange={e => selectYeaar(e.target.value)}>
+                    <option value='all'>All</option>
                     <option value='2022'>2022</option>
                     <option value='2021'>2021</option>
                     <option value='2020'>2020</option>

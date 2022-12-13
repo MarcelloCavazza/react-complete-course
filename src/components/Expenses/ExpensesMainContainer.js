@@ -16,11 +16,9 @@ export const ExpensesMainContainer = (props) => {
             <ExpensesFilter onSearch={searchValueHandler} />
             {
                 props.data.map((service) => {
-                    console.log('yearSeached', yearSeached)
-                    console.log('service.date.getFullYear()', service.date.getFullYear())
 
-                    if (yearSeached != "all") {
-                        if (yearSeached == service.date.getFullYear()) {
+                    if (yearSeached !== "all") {
+                        if (yearSeached === service.date.getFullYear().toString()) {
                             return <ExpenseItem key={service.id} title={service.title} price={service.price} date={service.date} />
                         }
                     } else {
