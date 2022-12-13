@@ -13,7 +13,7 @@ export const ExpensesMainContainer = (props) => {
 
     return (<>
         <Card className="expenses">
-            <ExpensesFilter onSearch={searchValueHandler} />
+            <ExpensesFilter onSearch={searchValueHandler} expensesYears={props.data} />
             {
                 props.data.map((service) => {
 
