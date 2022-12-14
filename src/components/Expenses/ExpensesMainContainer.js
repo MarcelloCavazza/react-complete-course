@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { ExpensesFilter } from "../ExpenseFilter/ExpensesFilter"
 import { Card } from "../UI/Card"
-import { ExpenseItem } from "./ExpenseItem"
+import { ExpenseList } from "./ExpenseList"
 import './ExpensesMainContainer.css'
 export const ExpensesMainContainer = (props) => {
 
@@ -14,18 +14,7 @@ export const ExpensesMainContainer = (props) => {
     return (<>
         <Card className="expenses">
             <ExpensesFilter onSearch={searchValueHandler} expensesYears={props.data} />
-            {
-                props.data.map((service) => {
-
-                    if (yearSeached !== "all") {
-                        if (yearSeached === service.date.getFullYear().toString()) {
-                            return <ExpenseItem key={service.id} title={service.title} price={service.price} date={service.date} />
-                        }
-                    } else {
-                        return <ExpenseItem key={service.id} title={service.title} price={service.price} date={service.date} />
-                    }
-                })
-            }
+            <ExpenseList data={props.data} selectedOption={yearSeached} />
         </Card>
     </>)
 

@@ -14,18 +14,21 @@ export const ExpensesFilter = (props) => {
 
     useEffect(() => {
         let localYEars = [];
+        let id = 0;
+        let canBeInserted = true;
+        // ! preciso arrumar uma forma de nao repetir valores no select de year
         props.expensesYears.map((expenses) => {
+            console.log(expenses)
             let localDate = expenses.date.getFullYear().toString();
-            console.log(localDate)
-            if (localYEars.indexOf(localDate) === -1) {
-                localYEars.push(localDate)
-            }
-            console.log(localYEars)
 
+            if (canBeInserted) {
+                localYEars.push({ year: localDate, key: id });
+                id++;
+            }
         })
         if (localYEars.length > 0) {
             setAllYearsCreated(() => {
-                return localYEars.sort()
+                return localYEars
             })
         }
     }, [props.expensesYears])
@@ -39,8 +42,8 @@ export const ExpensesFilter = (props) => {
                 <select value={year} onChange={e => selectYeaar(e.target.value)}>
                     <option value='all'>All</option>
                     {
-                        allYearsCreated.map((year) => {
-                            return <option value={year}>{year}</option>
+                        allYearsCreated.map((data) => {
+                            return <option key={data.key} value={data.year}>{data.year}</option>
                         })
                     }
                 </select>
