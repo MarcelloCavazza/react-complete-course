@@ -1,7 +1,10 @@
 import { ExpenseItem } from "./ExpenseItem"
+import './ExpensesList.css'
+
 export const ExpenseList = (props) => {
     return (<>
         {
+            // eslint-disable-next-line array-callback-return
             props.data.map((service) => {
 
                 if (props.selectedOption !== "all") {

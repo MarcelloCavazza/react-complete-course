@@ -15,20 +15,20 @@ export const ExpensesFilter = (props) => {
     useEffect(() => {
         let localYEars = [];
         let id = 0;
-        let canBeInserted = true;
         // ! preciso arrumar uma forma de nao repetir valores no select de year
+        // eslint-disable-next-line array-callback-return
         props.expensesYears.map((expenses) => {
-            console.log(expenses)
             let localDate = expenses.date.getFullYear().toString();
-
-            if (canBeInserted) {
-                localYEars.push({ year: localDate, key: id });
-                id++;
-            }
+            localYEars.push({ year: localDate, key: id });
+            id++;
         })
         if (localYEars.length > 0) {
+
+            let uniqueChars = localYEars.filter((c, index) => {
+                return localYEars.indexOf(c) === index;
+            });
             setAllYearsCreated(() => {
-                return localYEars
+                return uniqueChars
             })
         }
     }, [props.expensesYears])
